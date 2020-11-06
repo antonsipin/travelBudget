@@ -1,33 +1,36 @@
-<div class="container"> 
-<div class="row"> 
+<div class="container">
+  <div class="row">
 
-<div class="col-s-12"> 
+    <div class="col-s-12">
 
 
-<div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center">
 
-  <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip" id="newtripForm">
-    <h3>
-      <p id="newtripTitle" class="useraccount giveitaname">Give it a name!</p>
-    </h3>
+        <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip" id="newtripForm">
+          <h3>
+            <p id="newtripTitle" class="useraccount giveitaname">Name your trip, add friends!</p>
+          </h3>
 
-    {{#if error}}
-    <p class="text-danger">{{error}}</p>
-    {{/if}}
+          {{#if error}}
+          <p class="text-danger">{{error}}</p>
+          {{/if}}
 
-    <div class="form-group">
-      <input type="text" placeholder="Enter new trip name" name="newTripName" class="form-control" id="newtripName">
-    </div> <br />
-    <div class="form-group">
-      <input type="text" placeholder="Enter full trip cost" name="fullTripCost" class="form-control"
-        id="newTripFullCost">
-    </div> <br />
-    <button id="createNewtripBtn" type="submit" class="btn btn-primary waves-effect waves-light btn-large nav-wrapper green lighten-3">Create new trip</button>
-  </form>
+          <div class="form-group">
+            <input type="text" placeholder="Enter new trip name" name="newTripName" class="form-control"
+              id="newtripName">
+          </div> <br />
+          <div class="form-group">
+            <input type="text" placeholder="Type your friends here" name="tripUsers" class="form-control"
+              id="newTripFullCost">
+          </div> <br />
+          <button id="createNewtripBtn" type="submit"
+            class="btn btn-primary waves-effect waves-light btn-large nav-wrapper green lighten-3">Create new
+            trip</button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
 
 </div>
-
-</div>
-</div>
-
- </div>

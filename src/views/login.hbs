@@ -1,4 +1,15 @@
 <div class="form-div">
+
+  {{#if error}}
+  <div class="errors-wrapper">
+    <span id="gr-word">{{this.error}}</span>
+    <ul class="errors">
+    </ul>
+  </div>
+  {{/if}}
+</div>
+
+<div class="form-div">
   <form class="form-form" method="post" action="/users/login" name="login">
     <label for="email">Email:</label>
     <input class="input-in-form" id="email" name="email" type="email">

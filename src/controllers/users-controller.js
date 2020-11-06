@@ -43,7 +43,7 @@ console.log(serializeUser(newUser))
       res.redirect('/account')
     } 
    else {
-    res.render('signup', { error: 'Wrong Email or Password' })
+    res.render('signup', { error: 'Missing Email or Password' })
   }
     } catch (e) {
   
@@ -55,7 +55,6 @@ console.log(serializeUser(newUser))
 const signIn = async (req, res) => {
   const { email, password } = req.body
 
-
   if (email && password) {
     try {
       const user = await User.findOne({ email }).lean()
@@ -65,24 +64,21 @@ const signIn = async (req, res) => {
           req.session.user = serializeUser(user)
           res.redirect('/account')
         } else {
-          res.redirect(401, '/users/login')
+          res.render('login', { error: 'Wrong Email or Password' })
         }
       } else {
-        res.redirect(401, '/users/login')
+        res.render('login', { error: 'Wrong Email or Password' })
       }
 
-
-
     } catch (e) {
-      res.redirect('/users/login')
+  
+      res.render('login', { error: 'User not found please try again' })
     }
 
   } else {
-    res.render('login', { error: 'Отсутствует Email или Pass' })
+    res.render('login', { error: 'Missing Email or Password' })
   }
 }
-
-
 
 const logout = (req, res) => {
   req.session.destroy(function (err) {

@@ -13,6 +13,10 @@ router
   .post(newTripController.createNewCategory)
 
 router
+  .route('/addcategory')
+  .post(newTripController.addCategory)
+
+router
   .route('/category/castomize')
   .get(newTripController.renderCastomizeCategory)
   .post(newTripController.castomizeCategory)
@@ -33,5 +37,17 @@ router
 router
   .route('/:id')
   .get(newTripController.findTripById)
+
+router
+  .route('/category/:id')
+  .post(newTripController.findCategoryById)
+
+router
+  .route('/category/edit/:id')
+  .post(newTripController.editCategoryEqually)
+
+// router
+//   .route('/category/edit/castomize/:id')
+//   .post(newTripController.editCategoryCastomize)
   
 module.exports = router

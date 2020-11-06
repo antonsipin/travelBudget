@@ -1,28 +1,48 @@
+<div class="container">
+  <div class="row">
 
-<div class="container"> 
-<div class="row"> 
-
-<div class="col-s-12"> 
+    <div class="col-s-12">
 
 
-<h2 class="giveitaname useraccount">Category {{categoryName}} successfully saved!</h2> <br />
- {{!-- <div class="d-flex justify-content-center">
-  <a href="/newtrip/category/editCategory" class="payers giveitaname useraccount">Edit this category</a>
-  <br> --}}
-  {{!-- <a href="/newtrip/category giveitaname useraccount" class="payers giveitaname useraccount">Add New Category</a> <br />
-</div> <br />  --}}
+      <h2 id="gr-word">{{newTrip.name}} trip</h2> <br />
+      <h2 class="giveitaname useraccount">Category "{{categoryName}}" successfully saved!</h2> <br />
+      <div class="d-flex justify-content-center">
+        <br>
 
-<h3 class="giveitaname useraccount title">
-  {{#each payers}}
-  <span class="entry-date block font-3-4 c-lt-gray"> Name:{{this}} </span>
-  {{/each}}
+        <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category/{{newCategory.id}}"
+          id="editCategoryForm">
 
-  <a class="totalspent giveitaname useraccount"> <br>
-  Each Owns $ {{payerCost}}</a> <br />
-</h3>
+          <input type="hidden" name="categoryName" value="{{categoryName}}" class="form-control" id="categoryName">
+          <input type="hidden" name="tripName" value="{{tripName}}" class="form-control" id="tripName">
+          <input type="hidden" name="tripId" value="{{newTrip.id}}" class="form-control" id="tripId">
 
+          <button formaction="/newtrip/addcategory" name="tripId" formmethod="post" type="submit" value="{{newTrip.id}}"
+            class="btn btn-primary green lighten-3">Add category</button>
+
+          <button id="equallyBtn" type="submit" class="btn btn-primary green lighten-3">Edit this
+            category</button>
+
+          {{!-- <button formaction="/category/:id" name="tripName" formmethod="post" type="submit" value="{{tripName}}"
+            class="btn btn-primary green lighten-3">Edit this category</button> --}}
+
+        </form>
+
+      </div> <br />
+
+      <h3 class="giveitaname useraccount title">
+        {{#each payers}}
+        <span class="entry-date block font-3-4 c-lt-gray"> Name: {{this}} </span> <br>
+        {{/each}}
+
+        <a class="totalspent giveitaname useraccount"> <br>
+          Each Owns $ {{payerCost}}.00</a> <br />
+      </h3>
+      <div class="form-group">
+        <input type="hidden" name="tripName" value="{{tripName}}" class="form-control" id="payers">
+      </div>
+
+
+    </div>
+  </div>
 
 </div>
-</div>
-
- </div>

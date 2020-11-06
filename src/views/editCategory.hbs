@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-s-12">
+
+      <div class="d-flex justify-content-center">
+        <form class="d-flex flex-column align-items-center" method="POST"
+          action="/newtrip/category/edit/{{category.id}}" id="createCategoryForm">
+          <p id="newtripTitle" class="useraccount giveitaname">Edit category "{{categoryName}}" here:</p>
+
+          {{#if error}}
+          <p class="text-danger">{{error}}</p>
+          {{/if}}
+
+          <div class="form-group">
+            <input type="text" placeholder="Name your trip category" name="category[name]" class="form-control"
+              id="categoryName" value="{{category.name}}">
+          </div> <br />
+          <div class="form-group">
+            <input type="number" placeholder="Enter your full budget" name="category[cost]" class="form-control"
+              id="newCategoryCost" value="{{category.cost}}">
+          </div> <br />
+          <div class="form-group">
+            {{#each category.users}}
+            <input type="text" placeholder="Enter people name's in your trip" name="category[users]"
+              class="form-control" id="payers" value="{{this.name}}">
+            {{/each}}
+          </div> <br>
+          <div class="form-group">
+            <input type="hidden" name="tripName" value="{{tripName}}" class="form-control" id="payers">
+          </div>
+          <div class="form-group">
+            <a class="useraccount giveitaname">Choose how would you like to split:</a>
+          </div> <br>
+          <button id="equallyBtn" type="submit" class="btn btn-primary green lighten-3">Split Even</button>
+
+          <button formaction="/category/edit/castomize/:id" formmethod="post" type="submit" value="{{tripName}}"
+            name="tripNameCast" class="btn btn-primary green lighten-3">Custom split </button>
+        </form> <br>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

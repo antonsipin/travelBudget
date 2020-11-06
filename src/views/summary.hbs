@@ -56,16 +56,24 @@
     <div class="col s12">
       <h4>
         <div class="row">
-          <a>{{this.name}} spent {{this.cost}} USD</a>
+          <a>{{this.name}} spent {{this.cost}}.00 USD</a>
           <progress value="{{this.cost}}" max="{{../maxSumObj.cost}}">
           </progress>
         </div>
       </h4>
     </div>
   </div>
-  {{/each}}
+  {{/each}} </br>
 
 
+  <img src="{{src}}"> </br>
+
+  <img src="{{src2}}"> </br>
+
+  <img width="300" height="300" src="{{qrSrc}}"> </br>
+
+  {{!-- <canvas id="myChart" width="400" height="400"></canvas> --}}
+  </br>
   <form name="mailForm" method="POST" action="/mail" id="mailForm">
     <button id="sendMailBtn" formaction="/mail" formmethod="post"
       class="waves-effect waves-light btn-large nav-wrapper green lighten-3" type="submit" value="Pay castomize">Send

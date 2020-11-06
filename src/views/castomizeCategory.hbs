@@ -1,39 +1,40 @@
-<div class="container"> 
-<div class="row"> 
+<div class="container">
+  <div class="row">
 
-<div class="col-s-12"> 
+    <div class="col-s-12">
 
-<h2 class="useraccount giveitaname">Category: {{categoryName}}, <br>Total Budget: $ {{fullCost}}</h2>
-<div class="d-flex justify-content-center">
+      <h2 class="useraccount giveitaname">Category: {{categoryName}}, <br>Total Budget: $ {{fullCost}}</h2>
+      <div class="d-flex justify-content-center">
 
-  <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category/castomize/save"
-    id="castomizeCategoryForm">
-    <h4>
-      <p id="newtripTitle" class="giveitaname useraccount">Please enter amount for each payer:</p>
-    </h4>
+        <form class="d-flex flex-column align-items-center" method="POST" action="/newtrip/category/castomize/save"
+          id="castomizeCategoryForm">
+          <h4>
+            <p id="newtripTitle" class="giveitaname useraccount">Please enter amount for each payer:</p>
+          </h4>
 
-    {{#if error}}
-    <p class="text-danger">{{error}}</p>
-    {{/if}}
+          {{#if error}}
+          <p class="text-danger">{{error}}</p>
+          {{/if}}
 
-    {{#each payers}}
-    <div class="form-group">
-      <input type="text" placeholder="Enter cost for {{this}}" name="castomizeCategoryCost" class="form-control"
-        id="castomizeCategory">
-      <input type="hidden" name="payer" value="{{this}}">
-    </div> <br />
-    {{/each}}
-    <br />
-    <input type="hidden" name="categoryName" value="{{categoryName}}">
-    <input type="hidden" name="fullCost" value="{{fullCost}}">
+          {{#each payers}}
+          <div class="form-group">
+            <input type="text" placeholder="Enter cost for {{this}}" name="castomizeCategoryCost" class="form-control"
+              id="castomizeCategory">
+            <input type="hidden" name="payer" value="{{this}}">
+          </div> <br />
+          {{/each}}
+          <br />
+          <input type="hidden" name="categoryName" value="{{categoryName}}">
+          <input type="hidden" name="fullCost" value="{{fullCost}}">
+          <input type="hidden" name="tripName" value="{{tripName}}">
 
-    <button id="castomizeCategoryBtn" type="submit" class="btn btn-primary">Save category</button>
-  </form>
+          <button id="castomizeCategoryBtn" type="submit" class="btn btn-primary">Save category</button>
+        </form>
+
+      </div>
+
+
+    </div>
+  </div>
 
 </div>
-
-
-</div>
-</div>
-
- </div>

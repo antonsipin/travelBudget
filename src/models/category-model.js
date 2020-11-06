@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
 
-const categorySchema = new mongoose.Schema({
+const categorySchema = Schema({
   name: {
-    unique: true,
     required: true,
     type: String
   },
@@ -14,7 +14,10 @@ const categorySchema = new mongoose.Schema({
     required: true,
     type: Array
   },
-  trip: { type: mongoose.Schema.Types.ObjectId, ref: 'Trip' },
+  trip: String,
+  createdAt: {type: Date, default: Date.now},
+  updatedAt: { type: Date, default: Date.now },
+  tripModel: { type: Schema.Types.ObjectId, ref: 'Trip' }
 })
 
 module.exports = mongoose.model('Category', categorySchema)
